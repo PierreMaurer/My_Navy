@@ -6,10 +6,11 @@
 */
 
 #include "../includes/navy.h"
-char *convert_i_c(int N);
 
-int kill_proc(int pid)
+int check_exist_pid(int pid_user)
 {
-    kill(pid, SIGQUIT);
-    return 0;
+    if (!kill(pid_user, 0)) {
+        return 0;
+    }
+    return 84;
 }

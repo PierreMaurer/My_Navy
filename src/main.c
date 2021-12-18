@@ -1,6 +1,9 @@
-//
-// Created by peter_trapp on 08/12/2021.
-//
+/*
+** EPITECH PROJECT, 2021
+** navy
+** File description:
+** make a navy game
+*/
 
 #include "../includes/navy.h"
 
@@ -17,8 +20,12 @@ void process_info() {
     sleep(50);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
-    process_info();
+    if (argc == 2) {
+        check_exist_pid(my_getnbr(argv[1]));
+    } else {
+        process_info();
+    }
     return 0;
 }
