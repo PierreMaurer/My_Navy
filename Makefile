@@ -12,7 +12,7 @@ OBJ =    $(SRC:.c=.o)
 
 LIB = -I ../include/ -L ./lib/ -lmy -g
 
-NAME =	pushswap
+NAME =	navy
 
 all:	$(NAME)
 

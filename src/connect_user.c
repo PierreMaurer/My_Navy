@@ -9,8 +9,11 @@
 
 int check_exist_pid(int pid_user)
 {
-    if (!kill(pid_user, 0)) {
+    if (!kill(pid_user, SIGUSR1)) {
+        printf("oui");
         return 0;
+    } else {
+        printf("Bad PID\n");
+        return 84;
     }
-    return 84;
 }

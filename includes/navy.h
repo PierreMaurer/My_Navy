@@ -10,6 +10,13 @@
     #include <stdio.h>
     #include <signal.h>
     #include "my.h"
+
+    typedef struct user {
+    pid_t pid;
+    int id;
+}user_t;
 int check_exist_pid(int pid_user);
+int error_handling_usr1(int user_pid, char *pwd_map);
+int gameloop_usr1();
 
 #endif //NAVY_H
