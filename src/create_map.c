@@ -87,11 +87,11 @@ char  **place_boat(char **map, char *pos)
         y1 = pos[position + 3] - 48;
         x2 = pos[position + 5] - 65;
         y2 = pos[position + 6] - 48;
-        map[y1 - 1][x1] = 'o';
-        map[y2 - 1][x2] = 'o';
+        map[y1 - 1][x1] = pos[position + 0];
+        map[y2 - 1][x2] = pos[position + 0];
         if (pos[position + 0] - '0' > 2) {
             for (int counter = 0; counter < pos[position + 0] - 2; counter++) {
-                map[y1 - 1][x1] = 'o';
+                map[y1 - 1][x1] = pos[position + 0];
                 y1 += (y1 == y2) ? 0 : 1;
                 x1 += (x1 == x2) ? 0 : 1;
             }
