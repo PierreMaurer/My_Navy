@@ -25,19 +25,14 @@ void signal_handler(int num)
     return;
 }
 
-int gameloop_usr1()
+int gameloop_usr1(int argc, char **argv)
 {
-   user_t user_1;
-   user_1.pid = getpid();
-   user_1.id = 1;
+    int return_result = 0;
     signal(SIGUSR1, signal_handler);
-    while (1) {
-        printf("my pid: %d\nwaiting for enemy connection...\n", user_1.pid);
-        pause();
-        printf("successfully connected\n");
-        break;
-    }
-    return 1;
+    return_result = check_exist_map(argv[1]);
+    printf("size: %d", map_size(argv[1]));
+    create_map(argv[1]);
+    return return_result;
 }
 
 void help_menu()
@@ -54,7 +49,7 @@ int main(int argc, char **argv)
     } else if (argc == 3) {
         check_exist_pid(my_getnbr(argv[1]));
     } else if (argc == 2 ) {
-        gameloop_usr1();
+        gameloop_usr1(argc, argv);
     } else {
         help_menu();
     }

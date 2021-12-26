@@ -10,7 +10,6 @@
 int check_exist_pid(int pid_user)
 {
     if (!kill(pid_user, SIGUSR1)) {
-        printf("oui");
         return 0;
     } else {
         printf("Bad PID\n");
