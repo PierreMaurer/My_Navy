@@ -5,7 +5,7 @@
 ** make a navy game
 */
 
-#include "../includes/navy.h"
+#include "../../includes/navy.h"
 char *convert_i_c(int N);
 
 int kill_proc(int pid)

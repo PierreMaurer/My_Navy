@@ -5,7 +5,7 @@
 ** make a navy game
 */
 
-#include "../includes/navy.h"
+# include "../../includes/navy.h"
 
 int check_exist_pid(int pid_user)
 {

@@ -6,8 +6,13 @@
 ##
 
 SRC =	./src/main.c        \
-        ./src/connect_user.c        \
-        ./src/create_map.c
+        ./src/signal/connection_user.c        \
+        ./src/map/create_map.c        \
+        ./src/map/utils_map.c        \
+        ./src/map/print_map.c        \
+        ./src/map/place_boat.c        \
+        ./src/other/message.c        \
+        ./src/navy.c
 
 OBJ =    $(SRC:.c=.o)
 

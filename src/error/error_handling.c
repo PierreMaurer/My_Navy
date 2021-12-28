@@ -5,7 +5,7 @@
 ** make a navy game
 */
 
-#include "../includes/navy.h"
+#include "../../includes/navy.h"
 
 int error_handling_usr1(int user_pid, char *pwd_map)
 {

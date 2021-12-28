@@ -5,7 +5,7 @@
 ** make a navy game
 */
 
-#include "../includes/navy.h"
+#include "../../includes/navy.h"
 
 
 void handle_signal(int signal)
