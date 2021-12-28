@@ -16,9 +16,16 @@ void init_global_struct(char *pwd, p_t type)
     game.type = type;
     game.is_co = 0;
 }
-void navy(int argc, char **argv)
+int navy(int argc, char **argv)
 {
     p_t type = (argc == 3) ? second : first;
-    connection_user();
     init_global_struct(argv[1], type);
+    connection_user();
+    if (game.proc_status == 84) {
+        //Faut free la structure
+        return game.proc_status;
+    }
+    //Joueur
+
+    return game.proc_status;
 }

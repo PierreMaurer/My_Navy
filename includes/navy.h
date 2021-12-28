@@ -23,6 +23,7 @@
     pid_t enemy_pid;
     int proc_status;
     int is_co;
+    int win;
     char **map;
     char **enemy_map;
     p_t type;
@@ -39,10 +40,11 @@ char **transform_to_array_char(char **buff);
 char **create_map_player(char *pwd);
 char **create_map_enemy();
 void init_global_struct(char *pwd, p_t type);
-void navy(int argc, char **argv);
+int navy(int argc, char **argv);
 void print_tab(char **map);
 char  **place_boat(char **map, char *pos);
 
 //Connection_user
 int connection_user(void);
+void get_enemy_pid(void);
 #endif //NAVY_H

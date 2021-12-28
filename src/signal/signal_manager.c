@@ -7,24 +7,21 @@
 
 #include "../../includes/navy.h"
 
-
-void handle_signal(int signal)
+void enemy_pid_handler(int sig, siginfo_t *signal, void *ptr)
 {
-
-}
-void sig_connexion(void)
-{
-    struct sigaction sa;
-    struct sigset_t sigset_game;
-
-    sigemptyset(&sigset_game);
-    sa.sa_handler = &handle_signal;
-    sa.sa_flags = SA_SIGINFO;
-    sa.sa_mask = &sigset_game;
-    sigfillset(&sa.sa_mask);
-
-    printf("my pid: %d\nwaiting for enemy connection...\n", getpid());
-    pause();
-    printf("successfully connected\n");
+    game.enemy_pid = signal->si_pid;
+    game.is_co = 1;
 }
 
+void get_enemy_pid(void)
+{
+    struct sigaction sig;
+
+    sig.sa_sigaction = enemy_pid_handler;
+    sig.sa_flags = SA_SIGINFO;
+    sigemptyset(&sig.sa_mask);
+    if (sigaction(SIGUSR1, &sig, NULL)) {
+        game.proc_status = 84;
+        game.is_co = 0;
+    }
+}

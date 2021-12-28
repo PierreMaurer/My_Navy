@@ -7,7 +7,7 @@
 
 #include "../../includes/navy.h"
 
-int connection_user(void)
+void connection_user(void)
 {
     if (game.is_co)
         return 1;
@@ -16,8 +16,13 @@ int connection_user(void)
     } else {
         printf("my_pid: %d\n", game.pid);
         printf("waiting for enemy connection...\n");
+        get_enemy_pid();
         pause();
-
+        if (!game.is_co && game.proc_status == 84) {
+            printf("Error connexion");
+            return;
+        }
+        printf("\nenemy connect\n\n");
     }
-    return 1;
+    return;
 }

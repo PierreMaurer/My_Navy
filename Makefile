@@ -7,6 +7,7 @@
 
 SRC =	./src/main.c        \
         ./src/signal/connection_user.c        \
+        ./src/signal/signal_manager.c        \
         ./src/map/create_map.c        \
         ./src/map/utils_map.c        \
         ./src/map/print_map.c        \

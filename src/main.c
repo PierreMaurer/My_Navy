@@ -39,8 +39,8 @@ int main(int argc, char **argv)
         help_menu();
         return 0;
     } else if (argc == 3) {
-        //check_exist_pid(my_getnbr(argv[1]));
-        printf("Player 2");
+        kill(my_getnbr(argv[1]), SIGUSR1);
+        printf("Player 2 pid: %d", getpid());
     } else if (argc == 2 ) {
         gameloop_usr1(argc, argv);
     } else {
