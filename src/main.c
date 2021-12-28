@@ -25,24 +25,15 @@ void signal_handler(int num)
     return;
 }
 
-int gameloop_usr1(int argc, char **argv)
-{
-    int return_result = 0;
-    return_result = check_exist_map(argv[1]);
-    navy(argc, argv);
-    return return_result;
-}
-
 int main(int argc, char **argv)
 {
     if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
         help_menu();
         return 0;
     } else if (argc == 3) {
-        kill(my_getnbr(argv[1]), SIGUSR1);
-        printf("Player 2 pid: %d", getpid());
+        navy(argc, argv);
     } else if (argc == 2 ) {
-        gameloop_usr1(argc, argv);
+        navy(argc, argv);
     } else {
         help_menu();
     }

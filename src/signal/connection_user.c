@@ -10,9 +10,15 @@
 void connection_user(void)
 {
     if (game.is_co)
-        return 1;
-    if (game.type != 0) {
-        return 0;
+        return;
+    if (game.type == 1) {
+        if (!kill(game.enemy_pid, SIGUSR1)) {
+            printf("my_pid: %d\n", game.pid);
+            printf("successfully connected");
+        } else {
+            printf("Bad PID\n");
+            game.proc_status = 84;
+        }
     } else {
         printf("my_pid: %d\n", game.pid);
         printf("waiting for enemy connection...\n");

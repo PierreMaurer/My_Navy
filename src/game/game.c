@@ -1,4 +1,11 @@
-//
-// Created by peter_trapp on 28/12/2021.
-//
+/*
+** EPITECH PROJECT, 2021
+** navy
+** File description:
+** make a navy game
+*/
 
+void game_turn()
+{
+
+}

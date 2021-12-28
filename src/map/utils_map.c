@@ -13,7 +13,6 @@ int check_exist_map(char *pwd_map)
 
     if (file == -1) {
         printf("File not find\n");
-        game.proc_status = 84;
         return 84;
     }
     return file;

@@ -39,12 +39,14 @@ int fs_understand_return_of_read(int fd , char *buffer , int size);
 char **transform_to_array_char(char **buff);
 char **create_map_player(char *pwd);
 char **create_map_enemy();
-void init_global_struct(char *pwd, p_t type);
 int navy(int argc, char **argv);
 void print_tab(char **map);
 char  **place_boat(char **map, char *pos);
 
 //Connection_user
-int connection_user(void);
+void connection_user(void);
 void get_enemy_pid(void);
+
+//Utils
+void init_global_struct(char **argv, p_t type);
 #endif //NAVY_H

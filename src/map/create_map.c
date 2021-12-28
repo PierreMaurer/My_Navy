@@ -43,7 +43,6 @@ char **create_map_player(char *pwd)
 
 char **create_map_enemy()
 {
-    struct stat my_stat;
     char **map = malloc(sizeof(char *) * 31);
 
     map = transform_to_array_char(map);
