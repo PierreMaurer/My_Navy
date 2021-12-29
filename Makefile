@@ -13,6 +13,7 @@ SRC =	./src/main.c        \
         ./src/map/print_map.c        \
         ./src/map/place_boat.c        \
         ./src/other/message.c        \
+        ./src/other/init.c        \
         ./src/navy.c
 
 OBJ =    $(SRC:.c=.o)
