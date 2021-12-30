@@ -18,6 +18,6 @@ int navy(int argc, char **argv)
         return game.proc_status;
     }
     //Joueur
-
+    game_turn();
     return game.proc_status;
 }

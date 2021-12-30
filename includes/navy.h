@@ -49,4 +49,10 @@ void get_enemy_pid(void);
 
 //Utils
 void init_global_struct(char **argv, p_t type);
+
+//map
+void print_total_map();
+
+//game
+void game_turn();
 #endif //NAVY_H

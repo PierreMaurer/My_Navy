@@ -14,7 +14,7 @@ void connection_user(void)
     if (game.type == 1) {
         if (!kill(game.enemy_pid, SIGUSR1)) {
             printf("my_pid: %d\n", game.pid);
-            printf("successfully connected");
+            printf("successfully connected\n\n");
         } else {
             printf("Bad PID\n");
             game.proc_status = 84;

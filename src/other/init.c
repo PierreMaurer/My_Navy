@@ -10,7 +10,6 @@
 void init_global_struct(char **argv, p_t type)
 {
     if (type == 1) {
-        printf("pwd: %s", argv[2]);
         game.map = create_map_player(argv[2]);
         game.enemy_pid = my_getnbr(argv[1]);
     } else {

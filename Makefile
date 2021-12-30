@@ -12,6 +12,7 @@ SRC =	./src/main.c        \
         ./src/map/utils_map.c        \
         ./src/map/print_map.c        \
         ./src/map/place_boat.c        \
+        ./src/game/game.c        \
         ./src/other/message.c        \
         ./src/other/init.c        \
         ./src/navy.c

@@ -12,7 +12,6 @@ int check_exist_map(char *pwd_map)
     int file = open(pwd_map, O_RDONLY);
 
     if (file == -1) {
-        printf("File not find\n");
         return 84;
     }
     return file;
