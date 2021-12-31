@@ -13,24 +13,24 @@ void print_tab(char **map)
     int col = 0;
 
     for (; row != 8; row++) {
-        printf("%d|", row + 1);
+        my_printf("%d|", row + 1);
         for (col = 0; col != 7; col++) {
-            printf("%c ", map[row][col]);
+            my_printf("%c ", map[row][col]);
         }
-        printf("%c", map[row][col]);
-        printf("\n");
+        my_printf("%c", map[row][col]);
+        my_printf("\n");
     }
 }
 
 void print_total_map()
 {
-    printf("my positions:\n");
-    printf(" |A B C D E F G H\n");
-    printf("-+---------------\n");
+    my_printf("my positions:\n");
+    my_printf(" |A B C D E F G H\n");
+    my_printf("-+---------------\n");
     print_tab(game.map);
-    printf("\nenemy's positions:\n");
-    printf(" |A B C D E F G H\n");
-    printf("-+---------------\n");
+    my_printf("\nenemy's positions:\n");
+    my_printf(" |A B C D E F G H\n");
+    my_printf("-+---------------\n");
     print_tab(game.enemy_map);
-    printf("\n");
+    my_printf("\n");
 }

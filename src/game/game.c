@@ -6,9 +6,23 @@
 */
 
 #include "../../includes/navy.h"
+
+void first_player_game()
+{
+    print_total_map();
+    pause();
+    return;
+}
+
+void second_player_game()
+{
+    print_total_map();
+    pause();
+    return;
+}
 void game_turn()
 {
     if (game.proc_status != 84 && game.win == 0) {
-        print_total_map();
+        (game.type == 0) ? first_player_game() : second_player_game();
     }
 }

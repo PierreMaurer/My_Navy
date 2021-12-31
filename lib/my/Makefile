@@ -7,6 +7,11 @@
 
 SRC =   my_put_nbr.c		\
 		my_putchar.c		\
+		my_printf.c		\
+		printf_o.c		\
+		printf_dec.c		\
+		printf_pointer.c		\
+		printf_put_nbr.c		\
 		my_putstr.c		\
 		strcmp.c		\
 		alloc.c        \

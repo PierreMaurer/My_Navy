@@ -10,7 +10,7 @@
 int error_handling_usr1(int user_pid, char *pwd_map)
 {
     if (check_exist_pid(user_pid) == 84) {
-        printf("Wrong PID");
+        my_printf("Wrong PID");
         return 84;
     } else {
         return 0;

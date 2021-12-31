@@ -22,7 +22,7 @@ int map_size(char *pwd)
     struct stat my_stat;
 
     if (stat(pwd, &my_stat) == -1) {
-        printf("Bad file\n");
+        my_printf("Bad file\n");
         game.proc_status = 84;
         return 84;
     }

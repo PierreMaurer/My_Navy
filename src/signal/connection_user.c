@@ -13,22 +13,22 @@ void connection_user(void)
         return;
     if (game.type == 1) {
         if (!kill(game.enemy_pid, SIGUSR1)) {
-            printf("my_pid: %d\n", game.pid);
-            printf("successfully connected\n\n");
+            my_printf("my_pid: %d\n", game.pid);
+            my_printf("successfully connected\n\n");
         } else {
-            printf("Bad PID\n");
+            my_printf("Bad PID\n");
             game.proc_status = 84;
         }
     } else {
-        printf("my_pid: %d\n", game.pid);
-        printf("waiting for enemy connection...\n");
+        my_printf("my_pid: %d\n", game.pid);
+        my_printf("waiting for enemy connection...\n");
         get_enemy_pid();
         pause();
         if (!game.is_co && game.proc_status == 84) {
-            printf("Error connexion");
+            my_printf("Error connexion");
             return;
         }
-        printf("\nenemy connect\n\n");
+        my_printf("\nenemy connect\n\n");
     }
     return;
 }
