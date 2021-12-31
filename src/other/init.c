@@ -9,6 +9,7 @@
 
 void init_global_struct(char **argv, p_t type)
 {
+    game.proc_status = 0;
     if (type == 1) {
         game.map = create_map_player(argv[2]);
         game.enemy_pid = my_getnbr(argv[1]);
@@ -17,7 +18,6 @@ void init_global_struct(char **argv, p_t type)
     }
     game.pid = getpid();
     game.enemy_map = create_map_enemy();
-    game.proc_status = 0;
     game.type = type;
     game.is_co = 0;
 }

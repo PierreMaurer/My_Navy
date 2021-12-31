@@ -10,14 +10,12 @@
 int navy(int argc, char **argv)
 {
     game.proc_status = check_exist_map(argv[1]);
-    p_t type = (argc == 3) ? second : first;
-    init_global_struct(argv, type);
-    connection_user();
-    if (game.proc_status == 84) {
+    init_global_struct(argv, (argc == 3) ? second : first);
+    if (game.proc_status != 84) {
         //Faut free la structure
+        connection_user();
+        game_turn();
         return game.proc_status;
     }
-    //Joueur
-    game_turn();
     return game.proc_status;
 }

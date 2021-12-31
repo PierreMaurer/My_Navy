@@ -43,6 +43,10 @@ int navy(int argc, char **argv);
 void print_tab(char **map);
 char  **place_boat(char **map, char *pos);
 
+
+//Error
+void check_map(char *map);
+
 //Connection_user
 void connection_user(void);
 void get_enemy_pid(void);

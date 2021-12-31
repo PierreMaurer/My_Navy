@@ -16,33 +16,3 @@ int check_exist_map(char *pwd_map)
     }
     return file;
 }
-
-int map_size(char *pwd)
-{
-    struct stat my_stat;
-
-    if (stat(pwd, &my_stat) == -1) {
-        my_printf("Bad file\n");
-        game.proc_status = 84;
-        return 84;
-    }
-    return my_stat.st_size;
-}
-
-int fs_understand_return_of_read(int fd , char *buffer , int size)
-{
-    int	file;
-
-    file = read(fd, buffer, size);
-    if (file == size) {
-        return 0;
-    } else if (file == -1) {
-        return 84;
-    }
-    if (file == 0) {
-        return 84;
-    } else if (file < size) {
-        return 84;
-    }
-    return 0;
-}

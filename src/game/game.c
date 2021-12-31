@@ -10,14 +10,12 @@
 void first_player_game()
 {
     print_total_map();
-    pause();
     return;
 }
 
 void second_player_game()
 {
     print_total_map();
-    pause();
     return;
 }
 void game_turn()

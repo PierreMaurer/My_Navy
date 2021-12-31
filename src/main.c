@@ -20,5 +20,5 @@ int main(int argc, char **argv)
     } else {
         help_menu();
     }
-    return 0;
+    return game.proc_status;
 }

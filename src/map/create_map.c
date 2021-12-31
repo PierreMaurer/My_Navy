@@ -25,20 +25,22 @@ char **transform_to_array_char(char **buff)
 
 char **create_map_player(char *pwd)
 {
-    struct stat my_stat;
-    char buff[map_size(pwd)];
+    char buff[31];
     int map_open = check_exist_map(pwd);
-    char **map = malloc(sizeof(char *) * map_size(pwd));
-    stat(pwd, &my_stat);
-
-    if (my_stat.st_size == 0 ||
-            fs_understand_return_of_read(map_open, buff, map_size(pwd)) != 0) {
+    char **map = malloc(sizeof(char *) * 31);
+    if (fs_understand_return_of_read(map_open, buff, 31) != 0) {
+        game.proc_status = 84;
         return;
     }
     close(map_open);
-    map = transform_to_array_char(map);
-    map = place_boat(map, buff);
-    return map;
+    check_map(buff);
+    if (game.proc_status != 84) {
+        map = transform_to_array_char(map);
+        map = place_boat(map, buff);
+        return map;
+    }
+    my_printf("Error with position boat file\n");
+    return NULL;
 }
 
 char **create_map_enemy()

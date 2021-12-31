@@ -7,12 +7,41 @@
 
 #include "../../includes/navy.h"
 
-int error_handling_usr1(int user_pid, char *pwd_map)
+int fs_understand_return_of_read(int fd , char *buffer , int size)
 {
-    if (check_exist_pid(user_pid) == 84) {
-        my_printf("Wrong PID");
-        return 84;
-    } else {
+    int	file;
+
+    file = read(fd, buffer, size);
+    if (file == size) {
         return 0;
+    } else if (file == -1) {
+        game.proc_status = 84;
+        return 84;
     }
+    if (file == 0) {
+        game.proc_status = 84;
+        return 84;
+    } else if (file < size) {
+        game.proc_status = 84;
+        return 84;
+    }
+    return 0;
+}
+
+
+//TODO Opti long ligne
+void check_map(char *map)
+{
+    int counter = 0;
+    for (int count = 0; count < 4; count++) {
+        counter += (map[0 + 8 * count] >= '2' && map[0 + 8 * count] <= '5') ? 1 : 0;
+        counter += (map[1 + 8 * count] >= ':' && map[1 + 8 * count] <= ':') ? 1 : 0;
+        counter += (map[2 + 8 * count] >= 'A' && map[2 + 8 * count] <= 'H') ? 1 : 0;
+        counter += (map[3 + 8 * count] >= '1' && map[3 + 8 * count] <= '8') ? 1 : 0;
+        counter += (map[4 + 8 * count] >= ':' && map[4 + 8 * count] <= ':') ? 1 : 0;
+        counter += (map[5 + 8 * count] >= 'A' && map[5 + 8 * count] <= 'H') ? 1 : 0;
+        counter += (map[6 + 8 * count] >= '1' && map[6 + 8 * count] <= '8') ? 1 : 0;
+    }
+    game.proc_status = (counter != 28) ? 84 : 0;
+    return;
 }
