@@ -46,7 +46,7 @@ char  **place_boat(char **map, char *pos);
 
 //Error
 void check_map(char *map);
-
+void check_boat(char *map);
 //Connection_user
 void connection_user(void);
 void get_enemy_pid(void);
