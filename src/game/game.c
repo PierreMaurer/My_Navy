@@ -9,13 +9,21 @@
 
 void first_player_game()
 {
-    print_total_map();
+    while (game.proc_status != 84 || game.win != 0) {
+        print_total_map();
+        get_data();
+        get_sig_data();
+    }
     return;
 }
 
 void second_player_game()
 {
-    print_total_map();
+    while (game.proc_status != 84 || game.win != 0) {
+        print_total_map();
+        get_sig_data();
+        get_data();
+    }
     return;
 }
 void game_turn()

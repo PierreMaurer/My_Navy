@@ -24,8 +24,11 @@
     int proc_status;
     int is_co;
     int win;
+    int sig_rec;
     char **map;
     char **enemy_map;
+    int pos_letter;
+    int pos_number;
     p_t type;
 }navy_t;
 
@@ -59,4 +62,11 @@ void print_total_map();
 
 //game
 void game_turn();
+void get_data();
+
+//signal
+void send_data();
+void get_sig_data(void);
+void get_data_handler(int sig, siginfo_t *signal, void *ptr);
+void get_data_handler_two(int sig, siginfo_t *signal, void *ptr);
 #endif //NAVY_H
