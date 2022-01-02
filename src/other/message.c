@@ -5,6 +5,8 @@
 ** make a navy game
 */
 
+#include "../../includes/navy.h"
+
 void help_menu()
 {
     my_printf("USAGE\n     ./navy [first_player_pid] navy_positions\n");

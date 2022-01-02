@@ -35,7 +35,6 @@
 }navy_t;
 
 extern navy_t game;
-int check_exist_pid(int pid_user);
 int error_handling_usr1(int user_pid, char *pwd_map);
 int check_exist_map(char *pwd_map);
 int map_size(char *pwd);
@@ -47,31 +46,20 @@ char **create_map_enemy();
 int navy(int argc, char **argv);
 void print_tab(char **map);
 char  **place_boat(char **map, char *pos);
-
-
-//Error
 void check_map(char *map);
 void check_boat(char *map);
-//Connection_user
 void connection_user(void);
 void get_enemy_pid(void);
-
-//Utils
 void init_global_struct(char **argv, p_t type);
-
-//map
 void print_total_map();
-
-//game
 void game_turn();
 void get_data();
 void check_hit();
 void reset_pos();
-
-//signal
 void send_data();
 void get_sig_data(void);
 void get_data_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit(void);
+void help_menu();
 #endif //NAVY_H

@@ -18,5 +18,4 @@ void check_hit()
         game.map[game.pos_number][game.pos_letter] = 'o';
         kill(game.enemy_pid, SIGUSR2);
     }
-
 }

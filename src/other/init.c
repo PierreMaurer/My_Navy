@@ -14,9 +14,8 @@ void init_global_struct(char **argv, p_t type)
     if (type == 1) {
         game.map = create_map_player(argv[2]);
         game.enemy_pid = my_getnbr(argv[1]);
-    } else {
+    } else
         game.map = create_map_player(argv[1]);
-    }
     game.pid = getpid();
     game.enemy_map = create_map_enemy();
     game.type = type;

@@ -9,8 +9,7 @@
 
 char **transform_to_array_char(char **buff)
 {
-    for (int row = 0; row != 8; row++)
-    {
+    for (int row = 0; row != 8; row++) {
         buff[row] = malloc(sizeof(char) * 8);
         if (buff[row] == NULL) {
             my_putstr("Malloc failed");
