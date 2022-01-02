@@ -34,7 +34,7 @@ void get_hit_handler(int sig, siginfo_t *signal, void *ptr)
         game.hit++;
     } else if (sig == SIGUSR2) {
         my_printf("%c%d: missed\n\n",game.pos_letter, game.pos_number);
-        game.enemy_map[game.pos_number - 1][game.pos_letter - 65] = 'x';
+        game.enemy_map[game.pos_number - 1][game.pos_letter - 65] = 'o';
     }
 }
 
