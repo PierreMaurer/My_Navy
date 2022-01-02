@@ -28,29 +28,50 @@ void get_enemy_pid(void)
 
 void get_data_handler(int sig, siginfo_t *signal, void *ptr)
 {
-    if (sig == SIGUSR1) {
+    if (sig == SIGUSR1 && game.sig_rec == 0) {
+        game.pos_letter += 1;
+    } else if (sig == SIGUSR1 && game.sig_rec == 1) {
         game.pos_number += 1;
     } else if (sig == SIGUSR2) {
-        game.sig_rec = 1;
+        game.sig_rec += 1;
     }
-    my_printf("number %d", game.pos_number);
 }
+
 
 void get_sig_data(void)
 {
     struct sigaction my_sig;
-    int data_letter = 0;
-    int data_int = 0;
-
     my_sig.sa_sigaction = get_data_handler;
     my_sig.sa_flags = SA_SIGINFO;
-    my_printf("waiting for enemy's attack...");
-    while (!game.sig_rec) {
-        my_printf("dans le while");
+    my_printf("waiting for enemy's attack...\n");
+    while (game.sig_rec != 2) {
         sigaction(SIGUSR1, &my_sig, NULL);
         sigaction(SIGUSR2, &my_sig, NULL);
         pause();
     }
+    game.sig_rec = 0;
+    return;
+}
+
+void get_hit_handler(int sig, siginfo_t *signal, void *ptr)
+{
+    if (sig == SIGUSR1) {
+        my_printf("%c%d: hit\n\n",game.pos_letter, game.pos_number);
+        print_tab(game.enemy_map);
+        game.enemy_map[game.pos_number - 1][game.pos_letter - 65] = 'x';
+    } else if (sig == SIGUSR2) {
+        my_printf("%c%d: missed\n\n",game.pos_letter, game.pos_number);
+        game.enemy_map[game.pos_number - 1][game.pos_letter - 65] = 'x';
+    }
+}
+
+void get_hit(void)
+{
+    struct sigaction my_sig;
+    my_sig.sa_sigaction = get_hit_handler;
+    my_sig.sa_flags = SA_SIGINFO;
+    sigaction(SIGUSR1, &my_sig, NULL);
+    sigaction(SIGUSR2, &my_sig, NULL);
     return;
 }
 

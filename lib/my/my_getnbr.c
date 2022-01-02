@@ -69,6 +69,5 @@ int my_getnbr(char const *str)
         }
         count++;
     }
-    //printf("%d", result);
     return check_nb(result, str) * my_sign;
 }

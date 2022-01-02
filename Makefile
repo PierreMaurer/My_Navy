@@ -14,6 +14,7 @@ SRC =	./src/main.c        \
         ./src/map/print_map.c        \
         ./src/map/place_boat.c        \
         ./src/game/game.c        \
+        ./src/game/check_hit.c        \
         ./src/game/request_pos.c        \
         ./src/error/error_handling.c        \
         ./src/other/message.c        \
@@ -22,7 +23,7 @@ SRC =	./src/main.c        \
 
 OBJ =    $(SRC:.c=.o)
 
-LIB = -I ../include/ -L ./lib/ -lmy -g
+LIB = -I../include/ -L ./lib/ -lmy -g
 
 NAME =	navy
 
@@ -30,7 +31,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	make -C ./lib/my
-	gcc -o $(NAME) $(SRC) $(LIB) -g
+	gcc -o $(NAME) $(SRC) $(LIB) -Wall -Wextra -Wpedantic
 	make clean
 
 clean:

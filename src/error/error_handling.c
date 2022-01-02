@@ -46,7 +46,8 @@ void check_map(char *map)
         counter += (map[6 + 8 * count] >= '1' && map[6 + 8 * count] <= '8') ? 1 : 0;
     }
     game.proc_status = (counter != 28) ? 84 : 0;
-    (game.proc_status) == 0 ? check_boat(map) : NULL;
+    if (game.proc_status == 0)
+        check_boat(map);
     return;
 }
 

@@ -1,6 +1,9 @@
-//
-// Created by peter_trapp on 08/12/2021.
-//
+/*
+** EPITECH PROJECT, 2021
+** navy
+** File description:
+** make a navy game
+*/
 
 # ifndef NAVY_H
     # define NAVY_H
@@ -9,7 +12,6 @@
     #include <unistd.h>
     #include <stdio.h>
     #include <fcntl.h>
-    #include <sys/stat.h>
     #include <signal.h>
     #include "my.h"
 
@@ -63,10 +65,13 @@ void print_total_map();
 //game
 void game_turn();
 void get_data();
+void check_hit();
+void reset_pos();
 
 //signal
 void send_data();
 void get_sig_data(void);
 void get_data_handler(int sig, siginfo_t *signal, void *ptr);
-void get_data_handler_two(int sig, siginfo_t *signal, void *ptr);
+void get_hit_handler(int sig, siginfo_t *signal, void *ptr);
+void get_hit(void);
 #endif //NAVY_H

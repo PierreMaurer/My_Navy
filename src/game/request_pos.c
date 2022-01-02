@@ -11,7 +11,7 @@ void get_data()
     ssize_t read = 0;
     size_t size_buff = 0;
     char *line = NULL;
-    while (1) {
+    while (game.proc_status != 84) {
         my_printf("attack: ");
         read = getline(&line, &size_buff, stdin);
         if (read == -1) {

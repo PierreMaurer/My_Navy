@@ -30,7 +30,7 @@ char **create_map_player(char *pwd)
     char **map = malloc(sizeof(char *) * 31);
     if (fs_understand_return_of_read(map_open, buff, 31) != 0) {
         game.proc_status = 84;
-        return;
+        return NULL;
     }
     close(map_open);
     check_map(buff);
