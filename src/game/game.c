@@ -14,6 +14,7 @@ void first_player_game()
         get_data();
         get_hit();
         usleep(150);
+        check_win();
         if (game.win == 1)
             break;
         reset_pos();
@@ -22,10 +23,7 @@ void first_player_game()
         check_hit();
         check_win();
     }
-    if (game.hit == 14)
-        my_printf("I won\n");
-    if (game.enemy_hit == 14)
-        my_printf("Enemy won\n");
+    print_winner();
 }
 
 void second_player_game()
@@ -46,12 +44,20 @@ void second_player_game()
         game.pos_number--;
         check_win();
     }
-    if (game.hit == 14)
-        my_printf("I won\n");
-    if (game.enemy_hit == 14)
-        my_printf("Enemy won\n");
+    print_winner();
 }
 
+void print_winner()
+{
+    if (game.hit == 14) {
+        print_total_map();
+        my_printf("I won\n");
+    }
+    if (game.enemy_hit == 14) {
+        print_total_map();
+        my_printf("Enemy won\n");
+    }
+}
 void check_win()
 {
     if (game.hit == 14 || game.enemy_hit == 14)

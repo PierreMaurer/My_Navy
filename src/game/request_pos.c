@@ -21,7 +21,7 @@ void get_data()
             game.pos_number = line[1] - '0';
             break;
         } else
-            my_printf("Bad position\n");
+            my_printf("wrong position\n");
     }
     send_data();
     free(line);
