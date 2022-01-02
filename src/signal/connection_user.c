@@ -28,7 +28,7 @@ void connection_user(void)
             my_printf("Error connexion");
             return;
         }
-        my_printf("\nenemy connect\n\n");
+        my_printf("\nenemy connected\n\n");
     }
     return;
 }

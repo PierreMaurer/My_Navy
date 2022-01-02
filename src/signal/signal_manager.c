@@ -57,7 +57,6 @@ void get_hit_handler(int sig, siginfo_t *signal, void *ptr)
 {
     if (sig == SIGUSR1) {
         my_printf("%c%d: hit\n\n",game.pos_letter, game.pos_number);
-        print_tab(game.enemy_map);
         game.enemy_map[game.pos_number - 1][game.pos_letter - 65] = 'x';
     } else if (sig == SIGUSR2) {
         my_printf("%c%d: missed\n\n",game.pos_letter, game.pos_number);
