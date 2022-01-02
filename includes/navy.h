@@ -64,5 +64,6 @@ void get_data_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit(void);
 void check_win();
+void print_winner();
 void help_menu();
 #endif //NAVY_H
