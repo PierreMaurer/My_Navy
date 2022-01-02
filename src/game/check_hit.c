@@ -12,6 +12,7 @@ void check_hit()
     if (game.map[game.pos_number][game.pos_letter] != '.') {
         my_printf("%c%d: hit\n\n",game.pos_letter + 65, game.pos_number + 1);
         game.map[game.pos_number][game.pos_letter] = 'x';
+        game.enemy_hit++;
         kill(game.enemy_pid, SIGUSR1);
     } else {
         my_printf("%c%d: missed\n\n",game.pos_letter + 65, game.pos_number + 1);

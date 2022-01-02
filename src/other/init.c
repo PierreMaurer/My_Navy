@@ -22,4 +22,6 @@ void init_global_struct(char **argv, p_t type)
     game.is_co = 0;
     game.pos_letter = 0;
     game.pos_number = 0;
+    game.hit = 0;
+    game.enemy_hit = 0;
 }

@@ -31,6 +31,8 @@
     char **enemy_map;
     int pos_letter;
     int pos_number;
+    int hit;
+    int enemy_hit;
     p_t type;
 }navy_t;
 
@@ -61,5 +63,6 @@ void get_sig_data(void);
 void get_data_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit_handler(int sig, siginfo_t *signal, void *ptr);
 void get_hit(void);
+void check_win();
 void help_menu();
 #endif //NAVY_H

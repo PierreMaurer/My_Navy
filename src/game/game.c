@@ -14,15 +14,18 @@ void first_player_game()
         get_data();
         get_hit();
         usleep(150);
+        if (game.win == 1)
+            break;
         reset_pos();
         get_sig_data();
         game.pos_number--;
         check_hit();
-        game.win = 1;
-        print_total_map();
-
+        check_win();
     }
-    return;
+    if (game.hit == 14)
+        my_printf("I won\n");
+    if (game.enemy_hit == 14)
+        my_printf("Enemy won\n");
 }
 
 void second_player_game()
@@ -33,16 +36,27 @@ void second_player_game()
         get_sig_data();
         check_hit();
         reset_pos();
+        check_win();
+        if (game.win == 1)
+            break;
         get_data();
         get_hit();
         usleep(150);
         reset_pos();
-        game.win = 1;
-        print_total_map();
+        game.pos_number--;
+        check_win();
     }
-    return;
+    if (game.hit == 14)
+        my_printf("I won\n");
+    if (game.enemy_hit == 14)
+        my_printf("Enemy won\n");
 }
 
+void check_win()
+{
+    if (game.hit == 14 || game.enemy_hit == 14)
+        game.win = 1;
+}
 void reset_pos()
 {
     game.pos_number = 0;

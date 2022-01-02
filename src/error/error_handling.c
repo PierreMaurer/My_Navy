@@ -31,8 +31,6 @@ int fs_understand_return_of_read(int fd , char *buffer , int size)
     return 0;
 }
 
-
-//TODO Opti long ligne
 void check_map(char *map)
 {
     int counter = 0;
